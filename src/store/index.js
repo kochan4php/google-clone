@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
 const googleTheme = atom({
-  key: "googleTheme",
+  key: "23456789o9pkdmaoidjiam",
   default: "dark",
 });
 

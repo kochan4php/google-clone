@@ -2,6 +2,7 @@ import { googleTheme } from "@/store";
 import Head from "next/head";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
+import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 
 const Layouts = ({ children, title }) => {
   const [theme, setTheme] = useRecoilState(googleTheme);
@@ -23,7 +24,11 @@ const Layouts = ({ children, title }) => {
           onClick={themeHandler}
           className="absolute px-4 py-2 rounded right-10 bottom-10 bg-sky-500 dark:bg-sky-700 focus:ring-4 focus:ring-sky-500 transition-all duration-200"
         >
-          Theme
+          {theme === "dark" ? (
+            <BsFillSunFill size={25} />
+          ) : (
+            <BsFillMoonFill size={25} />
+          )}
         </button>
         {children}
       </div>
