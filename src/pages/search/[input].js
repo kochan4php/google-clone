@@ -26,19 +26,23 @@ const Search = () => {
     setIsLoading(true);
   };
 
-  const getData = async (input) => {
-    const res = await get(`${GOOGLE_API_SEARCH}/q=${input}`, {
+  const getData = (input) => {
+    const config = {
       headers: {
         "X-RapidAPI-Key": X_RapidAPI_KEY,
       },
-    });
+    };
 
-    if (res.status == 200) {
-      if (res.data?.success !== false) {
-        setData(res.data);
-        setIsLoading(false);
+    get(`${GOOGLE_API_SEARCH}/q=${input}`, config).then((res) => {
+      if (res.status == 200) {
+        if (res.data?.success !== false) {
+          setData(res.data);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
+        }
       }
-    }
+    });
   };
 
   useEffect(() => {
