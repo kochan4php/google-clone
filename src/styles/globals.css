@@ -7,4 +7,34 @@
   body {
     font-family: "Nunito", "Times New Roman", Times, serif !important;
   }
+
+  .menu-tabs {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  .menu-tabs::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+
+  progress {
+    border: none;
+    height: 15px;
+  }
+
+  progress::-webkit-progress-bar {
+    border: none;
+    height: 15px;
+  }
+
+  progress::-webkit-progress-value {
+    border: none;
+    height: 15px;
+  }
+
+  progress::-moz-progress-bar {
+    border: none;
+    height: 15px;
+  }
 }
