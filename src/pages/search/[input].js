@@ -5,7 +5,7 @@ import Layouts from "@/layouts";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const { get } = axios;
 
