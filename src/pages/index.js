@@ -1,6 +1,7 @@
 import Layouts from "@/layouts";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import googleWord from "@/data/googleWord";
 
 const Home = () => {
   const router = useRouter();
@@ -18,12 +19,14 @@ const Home = () => {
     <Layouts title="Google Clone" centerLayout>
       <div className="flex flex-col justify-center items-center gap-8 w-full px-4">
         <h1 className="text-7xl md:text-8xl font-bold">
-          <span className="text-sky-600 dark:text-sky-500">G</span>
-          <span className="text-red-500 dark:text-red-500">o</span>
-          <span className="text-yellow-500 dark:text-yellow-500">o</span>
-          <span className="text-sky-600 dark:text-sky-500">g</span>
-          <span className="text-green-500 dark:text-green-500">l</span>
-          <span className="text-red-500 dark:text-red-500">e</span>
+          {googleWord.map(({ color, word }, index) => (
+            <span
+              className={`text-${color}-600 dark:text-${color}-500`}
+              key={index}
+            >
+              {word}
+            </span>
+          ))}
         </h1>
 
         <form

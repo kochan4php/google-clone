@@ -1,6 +1,6 @@
 import { GOOGLE_API_SEARCH, X_RapidAPI_KEY } from "@/config";
-import * as tabs from "@/data/googleTabs";
 import googleWord from "@/data/googleWord";
+import googleTabs from "@/data/googleTabs";
 import Layouts from "@/layouts";
 import axios from "axios";
 import Link from "next/link";
@@ -13,9 +13,12 @@ const Search = () => {
   const router = useRouter();
   const { input } = router.query;
 
+  const tabs = googleTabs(input);
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState("");
+
   const searchHandler = (e) => setInputValue(e.target.value);
 
   const submitHandler = (e) => {
@@ -47,7 +50,6 @@ const Search = () => {
 
   useEffect(() => {
     getData(input ? input : inputValue);
-    console.log(data);
   }, [input]);
 
   return (
@@ -86,10 +88,13 @@ const Search = () => {
         </div>
         <div>
           <div className="bg-transparent flex justify-between gap-2 overflow-x-auto w-full py-1 px-0 menu-tabs">
-            {tabs.map(({ uri, title }, index) => (
+            {tabs.map(({ uri, title, Icon }, index) => (
               <Link href={uri} key={index}>
-                <a className="px-3 py-[3px] border border-opacity-30 border-slate-300 rounded-full !text-white">
-                  {title}
+                <a className="px-3 py-[3px] border dark:border-opacity-30 dark:border-slate-300 rounded-full dark:!text-slate-200 flex gap-2 items-center">
+                  <span className="dark:text-sky-400">
+                    {<Icon size={15} />}
+                  </span>
+                  <span>{title}</span>
                 </a>
               </Link>
             ))}
@@ -104,7 +109,7 @@ const Search = () => {
             {data?.results?.map((data, index) => (
               <div
                 key={index}
-                className="mb-6 bg-slate-700 p-4 rounded-md shadow-lg shadow-gray-900"
+                className="mb-6 dark:bg-slate-700 p-4 rounded-md shadow-lg dark:shadow-gray-900"
               >
                 <p className="text-sm mb-2">{data?.cite?.domain}</p>
                 <Link href={data.link}>

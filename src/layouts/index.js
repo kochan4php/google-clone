@@ -23,16 +23,16 @@ const Layouts = ({ children, title, centerLayout }) => {
           centerLayout ? "flex justify-center items-center" : ""
         }`}
       >
-        {/* <button
+        <button
           onClick={themeHandler}
-          className="absolute px-4 py-2 rounded right-10 bottom-10 bg-sky-500 dark:bg-sky-700 focus:ring-4 focus:ring-sky-500 transition-all duration-200"
+          className="fixed px-4 py-2 rounded right-5 bottom-5 bg-sky-500 dark:bg-sky-700 focus:ring-4 focus:ring-sky-500 transition-all duration-200"
         >
           {darkMode ? (
             <BsFillSunFill size={25} />
           ) : (
             <BsFillMoonFill size={25} />
           )}
-        </button> */}
+        </button>
         {children}
       </div>
     </>

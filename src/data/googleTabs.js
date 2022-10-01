@@ -1,38 +1,49 @@
-module.exports = [
+import { BiNews } from "react-icons/bi";
+import { BsFillBarChartFill, BsImage, BsSearch, BsTag } from "react-icons/bs";
+import { FiMapPin } from "react-icons/fi";
+import { MdOutlineFlight, MdOutlineOndemandVideo } from "react-icons/md";
+
+const googleTabs = (input) => [
   {
-    title: "Semua",
-    uri: "/",
+    title: "Search",
+    Icon: BsSearch,
+    uri: `/search/${input}`,
   },
   {
-    title: "Gambar",
-    uri: "/",
+    title: "Image",
+    Icon: BsImage,
+    uri: `/search/${input}/image`,
   },
   {
-    title: "Maps",
-    uri: "/",
+    title: "News",
+    Icon: BiNews,
+    uri: `/search/${input}/news`,
   },
   {
     title: "Video",
-    uri: "/",
+    Icon: MdOutlineOndemandVideo,
+    uri: `/search/${input}/video`,
   },
   {
-    title: "Berita",
-    uri: "/",
+    title: "Maps",
+    Icon: FiMapPin,
+    uri: `/search/${input}`,
   },
   {
     title: "Shopping",
-    uri: "/",
+    Icon: BsTag,
+    uri: `/search/${input}`,
   },
   {
-    title: "Buku",
-    uri: "/",
+    title: "Flights",
+    Icon: MdOutlineFlight,
+    uri: `/search/${input}`,
   },
   {
-    title: "Penerbangan",
-    uri: "/",
-  },
-  {
-    title: "Keuangan",
-    uri: "/",
+    title: "Finance",
+    Icon: BsFillBarChartFill,
+    uri: `/search/${input}`,
   },
 ];
+
+export default googleTabs;
