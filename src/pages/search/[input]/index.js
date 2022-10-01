@@ -19,7 +19,10 @@ const Search = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState("");
 
-  const searchHandler = (e) => setInputValue(e.target.value);
+  const searchHandler = (e) => {
+    setInputValue(e.target.value);
+    if (e.key === "Enter") e.target.blur();
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -80,7 +83,9 @@ const Search = () => {
               id="search"
               className="w-full bg-slate-300 dark:bg-slate-700 px-6 py-2 rounded-full outline-none text-base md:text-lg"
               placeholder="Search"
-              value={inputValue ? inputValue : input?.split("+")?.join(" ")}
+              defaultValue={
+                inputValue ? inputValue : input?.split("+")?.join(" ")
+              }
               onChange={searchHandler}
               autoComplete="off"
             />
