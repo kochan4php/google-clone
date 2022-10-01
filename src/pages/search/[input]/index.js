@@ -73,23 +73,24 @@ const Search = () => {
           </Link>
         </div>
         <div>
-          <form
-            onSubmit={submitHandler}
-            className="w-full lg:w-[60%] xl:w-[40%] 2xl:w-[30%]"
-          >
-            <input
-              type="text"
-              name="search"
-              id="search"
-              className="w-full bg-slate-50 dark:bg-slate-700 px-6 py-2 rounded-full outline-none text-base md:text-lg"
-              placeholder="Search"
-              defaultValue={
-                inputValue ? inputValue : input?.split("+")?.join(" ")
+          <input
+            type="text"
+            name="search"
+            id="search"
+            className="w-full lg:w-[60%] xl:w-[40%] 2xl:w-[30%] bg-slate-50 dark:bg-slate-700 px-6 py-2 rounded-full outline-none text-base md:text-lg"
+            placeholder="Search"
+            defaultValue={
+              inputValue ? inputValue : input?.split("+")?.join(" ")
+            }
+            onChange={searchHandler}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                submitHandler(e);
+                e.target.blur();
               }
-              onChange={searchHandler}
-              autoComplete="off"
-            />
-          </form>
+            }}
+            autoComplete="off"
+          />
         </div>
         <div>
           <div className="bg-transparent flex justify-between gap-2 overflow-x-auto w-full py-1 px-0 menu-tabs">
