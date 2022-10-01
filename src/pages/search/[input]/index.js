@@ -114,17 +114,17 @@ const Search = () => {
             {data?.results?.map((data, index) => (
               <div
                 key={index}
-                className="mb-6 dark:bg-slate-700 p-4 rounded-md shadow-lg dark:shadow-gray-900"
+                className="mb-6 dark:bg-gray-700 p-4 rounded-md shadow-lg dark:shadow-gray-900"
               >
-                <p className="text-sm mb-2">
+                <p className="text-sm mb-2 break-words">
                   {data?.cite?.domain ?? data.link}
                 </p>
                 <Link href={data.link}>
-                  <a className="inline-block text-2xl mb-2 font-semibold">
+                  <a className="inline-block text-xl text-blue-400 mb-2 font-semibold">
                     {data.title}
                   </a>
                 </Link>
-                <p className="text-sm">{data.description}</p>
+                <p className="text-sm break-words">{data.description}</p>
               </div>
             ))}
           </>
