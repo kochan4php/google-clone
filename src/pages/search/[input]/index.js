@@ -116,7 +116,9 @@ const Search = () => {
                 key={index}
                 className="mb-6 dark:bg-slate-700 p-4 rounded-md shadow-lg dark:shadow-gray-900"
               >
-                <p className="text-sm mb-2">{data?.cite?.domain}</p>
+                <p className="text-sm mb-2">
+                  {data?.cite?.domain ?? data.link}
+                </p>
                 <Link href={data.link}>
                   <a className="inline-block text-2xl mb-2 font-semibold">
                     {data.title}
