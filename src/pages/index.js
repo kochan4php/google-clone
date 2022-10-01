@@ -34,7 +34,7 @@ const Home = () => {
           className="w-full lg:w-[60%] xl:w-[40%] 2xl:w-[30%]"
         >
           <input
-            type="search"
+            type="text"
             name="search"
             id="search"
             className="w-full bg-slate-300 dark:bg-slate-700 px-6 py-2 rounded-full outline-none text-base md:text-lg"
