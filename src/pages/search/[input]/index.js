@@ -61,11 +61,8 @@ const Search = () => {
         <div>
           <Link href="/">
             <h1 className="text-4xl font-bold cursor-pointer text-center">
-              {googleWord.map(({ color, word }, index) => (
-                <span
-                  className={`text-${color}-600 dark:text-${color}-500`}
-                  key={index}
-                >
+              {googleWord.map((word, index) => (
+                <span className="text-slate-800 dark:text-white" key={index}>
                   {word}
                 </span>
               ))}
