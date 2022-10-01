@@ -19,7 +19,7 @@ const Layouts = ({ children, title, centerLayout }) => {
         <title>{title}</title>
       </Head>
       <div
-        className={`min-h-screen w-full dark:bg-slate-900 dark:text-white transition-all duration-200 ${
+        className={`min-h-screen w-full bg-slate-200 dark:bg-slate-900 dark:text-white transition-all duration-200 ${
           centerLayout ? "flex justify-center items-center" : ""
         }`}
       >

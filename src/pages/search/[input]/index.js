@@ -81,7 +81,7 @@ const Search = () => {
               type="text"
               name="search"
               id="search"
-              className="w-full bg-slate-300 dark:bg-slate-700 px-6 py-2 rounded-full outline-none text-base md:text-lg"
+              className="w-full bg-slate-50 dark:bg-slate-700 px-6 py-2 rounded-full outline-none text-base md:text-lg"
               placeholder="Search"
               defaultValue={
                 inputValue ? inputValue : input?.split("+")?.join(" ")
@@ -95,8 +95,8 @@ const Search = () => {
           <div className="bg-transparent flex justify-between gap-2 overflow-x-auto w-full py-1 px-0 menu-tabs">
             {tabs.map(({ uri, title, Icon }, index) => (
               <Link href={uri} key={index}>
-                <a className="px-3 py-[3px] border dark:border-opacity-30 dark:border-slate-300 rounded-full dark:!text-slate-200 flex gap-2 items-center">
-                  <span className="dark:text-sky-400">
+                <a className="px-3 py-[3px] border dark:border-opacity-30 dark:border-slate-300 bg-slate-50 dark:bg-slate-800 rounded-full text-slate-700 border-slate-300 dark:!text-slate-200 flex gap-2 items-center">
+                  <span className="text-sky-500 dark:text-sky-400">
                     {<Icon size={15} />}
                   </span>
                   <span>{title}</span>
@@ -114,13 +114,13 @@ const Search = () => {
             {data?.results?.map((data, index) => (
               <div
                 key={index}
-                className="mb-6 dark:bg-gray-700 p-4 rounded-md shadow-lg dark:shadow-gray-900"
+                className="mb-4 bg-gray-50 shadow-slate-400 dark:bg-gray-700 p-4 rounded-md shadow dark:shadow-md dark:shadow-gray-900"
               >
                 <p className="text-sm mb-2 break-words">
                   {data?.cite?.domain ?? data.link}
                 </p>
                 <Link href={data.link}>
-                  <a className="inline-block text-xl text-blue-400 mb-2 font-semibold">
+                  <a className="inline-block text-xl text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 mb-2 font-semibold">
                     {data.title}
                   </a>
                 </Link>
