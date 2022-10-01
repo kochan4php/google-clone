@@ -1,36 +1,25 @@
 import { GOOGLE_API_SEARCH, X_RapidAPI_KEY } from "@/config";
-import googleWord from "@/data/googleWord";
 import googleTabs from "@/data/googleTabs";
+import googleWord from "@/data/googleWord";
+import searchHandler from "@/helpers/searchHandler";
+import submitHandler from "@/helpers/submitHandler";
 import Layouts from "@/layouts";
+import { loadingState, userInputState } from "@/store";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 const { get } = axios;
 
 const Search = () => {
   const router = useRouter();
   const { input } = router.query;
-
   const tabs = googleTabs(input);
-
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [inputValue, setInputValue] = useState("");
-
-  const searchHandler = (e) => {
-    setInputValue(e.target.value);
-    if (e.key === "Enter") e.target.blur();
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    if (inputValue.length === 0) return;
-    router.push(`/search/${inputValue.split(" ").join("+")}`);
-    setIsLoading(true);
-  };
+  const inputValue = useRecoilValue(userInputState);
+  const [isLoading, setIsLoading] = useRecoilState(loadingState);
 
   const getData = (input) => {
     const config = {

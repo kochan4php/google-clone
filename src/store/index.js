@@ -9,4 +9,14 @@ const isDark = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export { isDark };
+const userInputState = atom({
+  key: "userInput",
+  default: "",
+});
+
+const loadingState = atom({
+  key: "loading",
+  default: true,
+});
+
+export { isDark, userInputState, loadingState };
