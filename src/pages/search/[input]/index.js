@@ -1,7 +1,6 @@
 import { GOOGLE_API_SEARCH } from "@/config";
 import configAPI from "@/config/configAPI";
 import googleTabs from "@/data/googleTabs";
-import googleWord from "@/data/googleWord";
 import searchHandler from "@/helpers/searchHandler";
 import submitHandler from "@/helpers/submitHandler";
 import Layouts from "@/layouts";
@@ -45,11 +44,12 @@ const Search = () => {
         <div>
           <Link href="/">
             <h1 className="text-4xl font-bold cursor-pointer text-center">
-              {googleWord.map((word, index) => (
-                <span className="text-slate-800 dark:text-white" key={index}>
-                  {word}
-                </span>
-              ))}
+              <span className="text-sky-600 dark:text-sky-500">G</span>
+              <span className="text-red-600 dark:text-red-500">o</span>
+              <span className="text-yellow-600 dark:text-yellow-500">o</span>
+              <span className="text-sky-600 dark:text-sky-500">g</span>
+              <span className="text-green-600 dark:text-green-500">l</span>
+              <span className="text-red-600 dark:text-red-500">e</span>
             </h1>
           </Link>
         </div>
@@ -90,13 +90,15 @@ const Search = () => {
       </nav>
       <div className="container px-4 overflow-y-auto">
         {isLoading ? (
-          <h1>Loading...</h1>
+          <div className="mb-4 bg-gray-50 shadow-slate-400 dark:bg-gray-700 p-4 rounded-md shadow dark:shadow-md dark:shadow-gray-900">
+            <h1>Loading...</h1>
+          </div>
         ) : (
-          <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
             {data?.results?.map((data, index) => (
               <div
                 key={index}
-                className="mb-4 bg-gray-50 shadow-slate-400 dark:bg-gray-700 p-4 rounded-md shadow dark:shadow-md dark:shadow-gray-900"
+                className="bg-gray-50 shadow-slate-400 dark:bg-gray-700 p-4 rounded-md shadow dark:shadow-md dark:shadow-gray-900"
               >
                 <p className="text-sm mb-2 break-words">
                   {data?.cite?.domain ?? data.link}
@@ -109,7 +111,7 @@ const Search = () => {
                 <p className="text-sm break-words">{data.description}</p>
               </div>
             ))}
-          </>
+          </div>
         )}
       </div>
     </Layouts>
