@@ -1,1 +1,3 @@
-const Image = () => <>hehe</>;
+const ImagePage = () => <>hehe</>;
+
+export default ImagePage;
