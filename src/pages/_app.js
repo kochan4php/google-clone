@@ -1,8 +1,8 @@
 import "@/styles/globals.css";
-import { RecoilRoot } from "recoil";
-import RecoilNexus from "recoil-nexus";
 import { ReactHooksWrapper, setHook } from "global-react-hooks";
 import { useRouter } from "next/router";
+import { RecoilRoot } from "recoil";
+import RecoilNexus from "recoil-nexus";
 
 setHook("router", useRouter);
 

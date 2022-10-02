@@ -39,7 +39,7 @@ const Search = () => {
   return (
     <Layouts title={`${input?.split("+")?.join(" ")} - Penelusuran Google`}>
       <GoogleNavbar />
-      <div className="container px-4 overflow-y-auto">
+      <div className="container px-4 pb-6 overflow-y-auto">
         {isLoading ? (
           <div className="mb-4 bg-gray-50 shadow-slate-400 dark:bg-gray-700 p-4 rounded-md shadow dark:shadow-md dark:shadow-gray-900">
             <h1>Loading...</h1>
