@@ -12,7 +12,7 @@ const GoogleNavbar = ({ destination = "" }) => {
   const { input } = router.query;
   const tabs = googleTabs(input);
   const inputValue = useRecoilValue(userInputState);
-  const activePath = tabs.find((tab) => tab.uri === router.asPath);
+  const activePath = tabs.find((tab) => tab?.uri === router.asPath);
 
   return (
     <nav className="px-4 py-5 flex flex-col gap-4">
@@ -42,7 +42,7 @@ const GoogleNavbar = ({ destination = "" }) => {
             <Link href={uri} key={index}>
               <a
                 className={`px-3 py-[3px] border dark:border-opacity-30 dark:border-slate-300 bg-slate-50 dark:bg-slate-800 rounded-full text-slate-700 border-slate-300 dark:text-slate-200 flex gap-2 items-center ${
-                  activePath.uri === uri ? "!bg-slate-50 !text-slate-900" : ""
+                  activePath?.uri === uri ? "!bg-slate-50 !text-slate-900" : ""
                 }`}
               >
                 <span className="text-sky-500 dark:text-sky-400">
