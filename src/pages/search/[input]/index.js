@@ -18,17 +18,14 @@ const Search = () => {
   const inputValue = useRecoilValue(userInputState);
   const [isLoading, setIsLoading] = useRecoilState(loadingState);
 
-  const getData = (input) => {
-    get(`${GOOGLE_API_SEARCH}/q=${input}`, configAPI).then((res) => {
-      if (res.status == 200) {
-        if (res.data?.success !== false) {
-          setData(res.data);
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 2000);
-        }
-      }
-    });
+  const getData = async (input) => {
+    const res = await get(`${GOOGLE_API_SEARCH}/q=${input}`, configAPI);
+    if (res.status == 200) {
+      // if (res.data?.success !== false) setData(res.data);
+      // else setData(res.data);
+      setData(res.data);
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
