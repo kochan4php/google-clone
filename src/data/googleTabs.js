@@ -27,22 +27,22 @@ const googleTabs = (input) => [
   {
     title: "Maps",
     Icon: FiMapPin,
-    uri: `/search/${input}`,
+    uri: `/search/${input}/hehe1`,
   },
   {
     title: "Shopping",
     Icon: BsTag,
-    uri: `/search/${input}`,
+    uri: `/search/${input}/hehe2`,
   },
   {
     title: "Flights",
     Icon: MdOutlineFlight,
-    uri: `/search/${input}`,
+    uri: `/search/${input}/hehe3`,
   },
   {
     title: "Finance",
     Icon: BsFillBarChartFill,
-    uri: `/search/${input}`,
+    uri: `/search/${input}/hehe4`,
   },
 ];
 
