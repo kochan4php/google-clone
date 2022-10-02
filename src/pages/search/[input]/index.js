@@ -1,4 +1,5 @@
-import { GOOGLE_API_SEARCH, X_RapidAPI_KEY } from "@/config";
+import { GOOGLE_API_SEARCH } from "@/config";
+import configAPI from "@/config/configAPI";
 import googleTabs from "@/data/googleTabs";
 import googleWord from "@/data/googleWord";
 import searchHandler from "@/helpers/searchHandler";
@@ -22,13 +23,7 @@ const Search = () => {
   const [isLoading, setIsLoading] = useRecoilState(loadingState);
 
   const getData = (input) => {
-    const config = {
-      headers: {
-        "X-RapidAPI-Key": X_RapidAPI_KEY,
-      },
-    };
-
-    get(`${GOOGLE_API_SEARCH}/q=${input}`, config).then((res) => {
+    get(`${GOOGLE_API_SEARCH}/q=${input}`, configAPI).then((res) => {
       if (res.status == 200) {
         if (res.data?.success !== false) {
           setData(res.data);

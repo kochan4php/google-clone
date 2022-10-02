@@ -2,7 +2,7 @@ import { loadingState, userInputState } from "@/store";
 import { getHook } from "global-react-hooks";
 import { getRecoil, setRecoil } from "recoil-nexus";
 
-const submitHandler = (e) => {
+const submitHandler = (e, destination = "") => {
   e.preventDefault();
 
   const inputValue = getRecoil(userInputState);
@@ -10,7 +10,7 @@ const submitHandler = (e) => {
 
   if (inputValue.length === 0) return;
 
-  router.push(`/search/${inputValue.split(" ").join("+")}`);
+  router.push(`/search/${inputValue.split(" ").join("+")}/${destination}`);
   setRecoil(loadingState, true);
 };
 
