@@ -1,3 +1,4 @@
+import GoogleLogo from "@/components/GoogleLogo";
 import { GOOGLE_API_SEARCH } from "@/config";
 import configAPI from "@/config/configAPI";
 import googleTabs from "@/data/googleTabs";
@@ -44,12 +45,7 @@ const Search = () => {
         <div>
           <Link href="/">
             <h1 className="text-4xl font-bold cursor-pointer text-center">
-              <span className="text-sky-600 dark:text-sky-500">G</span>
-              <span className="text-red-600 dark:text-red-500">o</span>
-              <span className="text-yellow-600 dark:text-yellow-500">o</span>
-              <span className="text-sky-600 dark:text-sky-500">g</span>
-              <span className="text-green-600 dark:text-green-500">l</span>
-              <span className="text-red-600 dark:text-red-500">e</span>
+              <GoogleLogo />
             </h1>
           </Link>
         </div>

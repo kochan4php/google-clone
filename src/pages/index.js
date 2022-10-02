@@ -1,3 +1,4 @@
+import GoogleLogo from "@/components/GoogleLogo";
 import searchHandler from "@/helpers/searchHandler";
 import submitHandler from "@/helpers/submitHandler";
 import Layouts from "@/layouts";
@@ -6,12 +7,7 @@ const Home = () => (
   <Layouts title="Google Clone" centerLayout>
     <div className="flex flex-col justify-center items-center gap-8 w-full px-4">
       <h1 className="text-7xl md:text-8xl font-bold">
-        <span className="text-sky-600 dark:text-sky-500">G</span>
-        <span className="text-red-600 dark:text-red-500">o</span>
-        <span className="text-yellow-600 dark:text-yellow-500">o</span>
-        <span className="text-sky-600 dark:text-sky-500">g</span>
-        <span className="text-green-600 dark:text-green-500">l</span>
-        <span className="text-red-600 dark:text-red-500">e</span>
+        <GoogleLogo />
       </h1>
 
       <input
