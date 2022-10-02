@@ -21,8 +21,8 @@ const Search = () => {
   const getData = async (input) => {
     const res = await get(`${GOOGLE_API_SEARCH}/q=${input}`, configAPI);
     if (res.status == 200) {
-      // if (res.data?.success !== false) setData(res.data);
-      // else setData(res.data);
+      if (res.data?.success !== false) setData(res.data);
+      else setData(res.data);
       setData(res.data);
       setIsLoading(false);
     }
